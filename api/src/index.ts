@@ -1,4 +1,12 @@
-console.log("hola")
+import app from './app';
+import './dataBase';
 
-let nombre: string = "Carlos"
+//Starting the server
 
+const main = async() => {
+	await app.listen(app.get('port'), () => {
+		console.log(`listening on port ${app.get("port")}`)
+	});
+};
+
+main();
