@@ -6,7 +6,7 @@ interface IUsers extends Document{
 	userName: string;
 	password: string;
 	mail: string;
-	prendas: Types.ObjectId
+	roles: Types.ObjectId;
 };
 
 const userSchema = new Schema({
@@ -38,9 +38,9 @@ const userSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	prendas: {
+	roles: {
 		type: Schema.Types.ObjectId,
-		ref: 'Prendas'
+		ref: 'Roles'
 	}
 },{
 	versionKey: false,

@@ -1,7 +1,10 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
 interface IPrendas extends Document {
 	title: string;
+	category: Types.ObjectId;
+	user: Types.ObjectId;
+	moda: string;
 	description: string;
 	tallas: any[];
 	precio: number;
@@ -16,6 +19,20 @@ const prendasSchema = new Schema({
 	title: {
 		type: String,
 		required: true,
+		trim: true
+	},
+	category: {
+		type: Schema.Types.ObjectId,
+		ref: 'Categories',
+		required: true
+	},
+	user: {
+		type: Schema.Types.ObjectId,
+		ref: 'Users',
+		required: true
+	}
+	moda: {
+		type: String,
 		trim: true
 	},
 	description: {
